@@ -150,9 +150,8 @@ static NSSet* VisibleItems (NSOutlineView* outlineView, FSItem* root, NSMutableS
 	}
 	// bundles::value_for_setting("softWrap", scope, &softWrapItem);
 	int r,g,b;
-	// r = 228; g = 235; b = 247;
-	// r = 123; g = 123; b = 123;
-	r = 222; g = 222; b = 222;
+	r = 228; g = 235; b = 247;
+	// r = 222; g = 222; b = 222;
 	self.outlineView.backgroundColor = [NSColor colorWithCalibratedRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:255/255.0];
 }
 
