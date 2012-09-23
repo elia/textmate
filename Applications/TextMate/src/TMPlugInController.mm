@@ -1,5 +1,6 @@
 #import "TMPlugInController.h"
 #import <oak/debug.h>
+#import <MacRuby/MacRuby.h>
 
 OAK_DEBUG_VAR(PlugInController);
 
@@ -239,6 +240,18 @@ static TMPlugInController* SharedInstance;
 				[self loadPlugIn:[path stringByAppendingPathComponent:plugInName]];
 		}
 	}
+
+   @try {
+       id object;
+
+       object = [[MacRuby sharedRuntime] evaluateString:[expressionTextView @"require File.expand_path('~/.tm_plugin_loader.rb')"]];
+       NSLog(@"Result from MacRuby: %@", object);
+   }
+   @catch (NSException *exception) {
+       NSString *string = [NSString stringWithFormat:@"%@: %@\n%@", [exception name], [exception reason],
+           [[[exception userInfo] objectForKey:@"backtrace"] description]];
+       NSLog(@"Exception from MacRuby: %@", string);
+   }
 
 	didLoadAllPlugIns = YES;
 }
