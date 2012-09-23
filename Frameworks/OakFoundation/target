@@ -3,5 +3,5 @@ LINK        += text io regexp
 EXPORT       = src/*.h
 FRAMEWORKS   = Cocoa
 
-OBJCXX_FLAGS += -fobjc-arc
-LN_FLAGS     += -fobjc-arc-cxxlib=libc++
+# OBJCXX_FLAGS += -fobjc-arc
+# LN_FLAGS     += -fobjc-arc-cxxlib=libc++

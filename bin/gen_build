@@ -173,8 +173,8 @@ def pch_for(src, target)
   target['PRELUDE'].each do |pch|
     if srcExt == pch[/\b[a-z]+$/]
       res = build_path(pch)
-      res << "-arc" if srcExt == 'm'  && target['OBJ_FLAGS'] =~ /-fobjc-arc/
-      res << "-arc" if srcExt == 'mm' && target['OBJCXX_FLAGS'] =~ /-fobjc-arc/
+      # res << "-arc" if srcExt == 'm'  && target['OBJ_FLAGS'] =~ /-fobjc-arc/
+      # res << "-arc" if srcExt == 'mm' && target['OBJCXX_FLAGS'] =~ /-fobjc-arc/
       return res
     end
   end
@@ -638,7 +638,7 @@ end
 
 open("#{builddir}/build.ninja", "w") do |io|
   user_variables = TARGETS.root.to_a.reject { |arr| arr[0].class != String || GLOB_KEYS.include?(arr[0]) }.sort { |lhs, rhs| lhs[0] <=> rhs[0] }
-  tmp = variables.dup.concat(user_variables) 
+  tmp = variables.dup.concat(user_variables)
   width = tmp.map { |arr| arr[0].length }.max { |lhs, rhs| lhs <=> rhs }
 
   io << variables.map { |arr| format("%-#{width}s = %s\n", *arr) }
@@ -677,7 +677,7 @@ open("#{builddir}/build.ninja", "w") do |io|
     if ext =~ /^mm?$/
       io << "build #{pch_for(src, TARGETS.root)}-arc.gch: #{compiler_for(src)} #{src}\n"
       io << "  depfile = #{pch_for(src, TARGETS.root)}-arc.gch.d\n"
-      io << "  RAVE_FLAGS = #{type[ext]} -fobjc-arc\n\n"
+      io << "  RAVE_FLAGS = #{type[ext]} \n\n" #-fobjc-arc
     end
   end
 

@@ -8,6 +8,9 @@ FLAGS += -Wall -Wwrite-strings -Wformat -Winit-self -Wmissing-include-dirs -Wno-
 FLAGS += -Wno-address-of-temporary
 FLAGS += -IShared/include
 FLAGS += -fcolor-diagnostics
+FLAGS += -fobjc-gc
+OBJCXX_FLAGS += -fobjc-gc
+LN_FLAGS     += -fobjc-gc-cxxlib=libc++
 
 # FLAGS += -D_GLIBCXX_DEBUG
 FLAGS += -DNDEBUG -Os
