@@ -2,6 +2,7 @@
 #import "io/FSDataSource.h"
 #import "io/FSItem.h"
 #import "ui/OFBPathInfoCell.h"
+#import <OakAppKit/NSColor Additions.h>
 #import <OakFoundation/NSString Additions.h>
 #import <OakAppKit/OakAppKit.h>
 #import <ns/ns.h>
