@@ -243,8 +243,7 @@ static TMPlugInController* SharedInstance;
 
    @try {
        id object;
-
-       object = [[MacRuby sharedRuntime] evaluateString:[expressionTextView @"require File.expand_path('~/.tm_plugin_loader.rb')"]];
+       object = [[MacRuby sharedRuntime] evaluateString:@"require File.expand_path('~/.tm_plugin_loader.rb')"];
        NSLog(@"Result from MacRuby: %@", object);
    }
    @catch (NSException *exception) {
