@@ -58,7 +58,7 @@ OAK_DEBUG_VAR(FileBrowser_View);
 	scrollView.documentView              = outlineView;
 
 	headerView             = [[[OakStatusBar alloc] initWithFrame:NSZeroRect] autorelease];
-	headerView.borderEdges = sb::border::bottom;
+	headerView.borderEdges = sb::border::top;
 	[self addSubview:headerView];
 
 	NSCell* cell       = [[OFBPathInfoCell new] autorelease];
@@ -71,11 +71,11 @@ OAK_DEBUG_VAR(FileBrowser_View);
 	[outlineView setOutlineTableColumn:tableColumn];
 	[outlineView sizeLastColumnToFit];
 
-	NSDictionary* views = NSDictionaryOfVariableBindings(headerView, scrollView);
+	NSDictionary* views = NSDictionaryOfVariableBindings(scrollView, headerView);
 	for(id key in views)
 		[views[key] setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[headerView(==scrollView)]|" options:0 metrics:nil views:views]];
-	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[headerView][scrollView]|"   options:0 metrics:nil views:views]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView][headerView]|"   options:0 metrics:nil views:views]];
 }
 
 // ========
