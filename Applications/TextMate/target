@@ -3,9 +3,12 @@ CP_Resources     = resources/* icons/*.icns @PrivilegedTool @mate
 CP_SharedSupport = support/*
 CP_PlugIns       = @Dialog @Dialog2
 FLAGS           += -DREST_API='@"$rest_api"'
+LN_FLAGS        += -F/Library/Frameworks
+FLAGS           += -F/Library/Frameworks
+FLAGS           += -F/Library/Frameworks/MacRuby.framework
 LINK            += bundles cf command document editor io network ns plist settings text
 LINK            += BundleMenu BundleEditor BundlesManager CrashReporter DocumentWindow Find HTMLOutputWindow OakAppKit OakFilterList OakFoundation OakSystem OakTextView Preferences SoftwareUpdate
-FRAMEWORKS       = Cocoa MacRuby
+FRAMEWORKS       = Cocoa Foundation MacRuby
 HTML_HEADER      = templates/header.html
 HTML_FOOTER      = templates/footer.html
 MARKDOWN_FOOTER  = references.md
