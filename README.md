@@ -2,7 +2,7 @@
 
 This repository contains the source code for TextMate 2, a text editor for OS X 10.7+.
 
-![textmate](https://raw.github.com/textmate/textmate/gh-pages/images/screenshot.png)
+![textmate](http://f.cl.ly/items/0u0l1t0I3W181t102q1Y/tm2-elia.png)
 
 # Building
 
@@ -187,7 +187,7 @@ You can safely assume that all `xib` files without such message are saved with X
 After this, re-apply your change and commit. If the change is non-trivial it is a good idea to write how you made the change in the commit body. E.g. a commit message could be:
 
 	Disable install button when we can’t install
-	
+
 	The install button’s “enabled” property
 	has been bound to the “canInstall”
 	property of File’s Owner.
